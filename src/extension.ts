@@ -72,8 +72,8 @@ const webUrl = (baseUrl:string = stashDomain, gitUrl: any, branch: string, fileP
 };
 
 const prUrl = () => {
-    //https://stash.odesk.com/projects/UC/repos/ui-packages/pull-requests/96/diff
-}
+    // todo
+};
 
 // this method is called when your extension is deactivated
 export function deactivate() {
