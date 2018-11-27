@@ -1,4 +1,4 @@
-![vscode-open-in-stash]("Open in Stash Atlassian")  
+# Open in Stash Atlassian
 
 **Supports :** Stash Atlassian
 
