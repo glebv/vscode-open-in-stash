@@ -25,7 +25,6 @@ export function activate(context: vscode.ExtensionContext) {
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
     context.subscriptions.push(vscode.commands.registerCommand('extension.openInStash', openInStashPovider));
-    // context.subscriptions.push(vscode.commands.registerCommand('extension.openInStashPR', openInStashPR));
 }
 
 // const openInStashPR = (args: any) => {
@@ -69,10 +68,6 @@ const webUrl = (baseUrl:string = stashDomain, gitUrl: any, branch: string, fileP
     return `${baseUrl}/projects/${gitUrl.owner}/repos/${gitUrl.name}/browse` 
         + (filePath ? `${filePath}` : '') 
         + (branch ? `?at=refs/heads/${branch}` : '');
-};
-
-const prUrl = () => {
-    // todo
 };
 
 // this method is called when your extension is deactivated

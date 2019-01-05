@@ -1,13 +1,31 @@
 {
     "name": "vscode-open-in-stash",
-    "displayName": "vscode-open-in-stash",
-    "description": "Open vscode in Stash Atlassian",
+    "displayName": "Open in Stash Atlassian",
+    "description": "Jump to a source code line in Stash Atlassian",
+    "publisher": "glebv",
     "version": "0.0.1",
+    "icon": "images/icon_200.png",
+    "galleryBanner": {
+        "color": "#f7f8f8",
+        "theme": "light"
+    },
+    "license": "SEE LICENSE IN LICENSE.md",
+    "homepage": "https://github.com/glebv/vscode-open-in-stash/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/glebv/vscode-open-in-stash.git"
+    },
+    "bugs": {
+        "url": "https://github.com/glebv/vscode-open-in-stash/issues"
+    },
     "engines": {
         "vscode": "^1.29.0"
     },
     "categories": [
         "Other"
+    ],
+    "keywords": [
+        "stash", "atlassian", "bitbucket", "git"
     ],
     "activationEvents": [
         "onCommand:extension.openInStash"
