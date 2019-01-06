@@ -57,7 +57,4 @@ Add following line into workspace settings;
 **Enjoy!**
 
 #### TODO
-
 * tests
-* icon
-* publish to vscode extension markeplace 

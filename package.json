@@ -1,83 +1,87 @@
 {
-    "name": "vscode-open-in-stash",
-    "displayName": "Open in Stash Atlassian",
-    "description": "Jump to a source code line in Stash Atlassian",
-    "publisher": "glebv",
-    "version": "0.0.1",
-    "icon": "images/icon_200.png",
-    "galleryBanner": {
-        "color": "#f7f8f8",
-        "theme": "light"
-    },
-    "license": "SEE LICENSE IN LICENSE.md",
-    "homepage": "https://github.com/glebv/vscode-open-in-stash/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/glebv/vscode-open-in-stash.git"
-    },
-    "bugs": {
-        "url": "https://github.com/glebv/vscode-open-in-stash/issues"
-    },
-    "engines": {
-        "vscode": "^1.29.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "keywords": [
-        "stash", "atlassian", "bitbucket", "git"
-    ],
-    "activationEvents": [
-        "onCommand:extension.openInStash"
-    ],
-    "main": "./out/extension",
-    "properties": {
-        "openInStash.stashDomain": {
-          "type": [
-            "string"
-          ],
-          "default": "",
-          "description": "Configure a custom Stash domain. Useful for Bitbucket Atlassian enterprise"
-        }
-    },
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.openInStash",
-                "title": "Open in Stash"
-            }, 
-            {
-                "command": "extension.openInStashPR",
-                "title": "Open in Stash PR"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "yarn run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "yarn run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^8.10.25",
-        "tslint": "^5.8.0",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21"
-    },
-    "dependencies": {
-        "@types/find-parent-dir": "^0.3.0",
-        "@types/git-branch": "^2.0.0",
-        "@types/git-url-parse": "^9.0.0",
-        "@types/open": "^0.0.29",
-        "find-parent-dir": "^0.3.0",
-        "git-branch": "^2.0.1",
-        "git-repo-info": "^2.0.0",
-        "git-url-parse": "^11.1.1",
-        "gitconfiglocal": "^2.0.2",
-        "open": "^0.0.5",
-        "parse-git-config": "^2.0.3",
-        "pify": "^4.0.1"
+  "name": "vscode-open-in-stash",
+  "displayName": "Open in Stash Atlassian",
+  "description": "Jump to a source code line in Stash Atlassian",
+  "publisher": "glebv",
+  "version": "0.0.1",
+  "icon": "images/icon_200.png",
+  "galleryBanner": {
+    "color": "#f7f8f8",
+    "theme": "light"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "homepage": "https://github.com/glebv/vscode-open-in-stash/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glebv/vscode-open-in-stash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/glebv/vscode-open-in-stash/issues"
+  },
+  "engines": {
+    "vscode": "^1.29.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "stash",
+    "atlassian",
+    "bitbucket",
+    "git"
+  ],
+  "activationEvents": [
+    "onCommand:extension.openInStash"
+  ],
+  "main": "./out/extension",
+  "properties": {
+    "openInStash.stashDomain": {
+      "type": [
+        "string"
+      ],
+      "default": "",
+      "description": "Configure a custom Stash domain. Useful for Bitbucket Atlassian enterprise"
     }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.openInStash",
+        "title": "Open in Stash"
+      },
+      {
+        "command": "extension.openInStashPR",
+        "title": "Open in Stash PR"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/find-parent-dir": "^0.3.0",
+    "@types/git-branch": "^2.0.0",
+    "@types/git-url-parse": "^9.0.0",
+    "@types/gitconfiglocal": "^2.0.0",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "@types/opn": "^5.1.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  },
+  "dependencies": {
+    "find-parent-dir": "^0.3.0",
+    "git-branch": "^2.0.1",
+    "git-repo-info": "^2.0.0",
+    "git-url-parse": "^11.1.1",
+    "gitconfiglocal": "^2.0.2",
+    "opn": "^5.4.0",
+    "parse-git-config": "^2.0.3",
+    "pify": "^4.0.1"
+  }
 }
