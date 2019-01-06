@@ -9,24 +9,25 @@ import * as path from 'path';
 
 const opn = require('opn');
 
-
 const stashDomain = vscode.workspace.getConfiguration('openInStash').get('stashDomain', '');
 
 export function activate(context: vscode.ExtensionContext) {
-  context.subscriptions.push(vscode.commands.registerCommand('extension.openInStash', openInStashPovider));
+  context.subscriptions.push(
+    vscode.commands.registerCommand('extension.openInStash', openInStashPovider),
+  );
 }
-
 
 const openInStashPovider = (args: any) => {
   const editor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
   if (!stashDomain) {
-    vscode.window.showErrorMessage('Stash domain is not specified, please set it in workspace configuration');
+    vscode.window
+    .showErrorMessage('Stash domain is not specified, please set it in workspace configuration');
   }
 
   if (editor) {
     const fileFsPath: string = editor.document.fileName;
 
-    var repoDir = findParentDir.sync(fileFsPath, '.git');
+    const repoDir = findParentDir.sync(fileFsPath, '.git');
     if (!repoDir) {
       throw Error('Cant locate .git repository for this file');
     }
@@ -39,19 +40,22 @@ const openInStashPovider = (args: any) => {
       const gitUrl: gitUrlParse.GitUrl = gitUrlParse(config.remote.origin.url);
       const branch = gitBranch.sync(repoDir as string);
 
-      let formattedFilePath: string = path.relative(repoDir as string, fileFsPath).replace(/\\/g, '/');
-      formattedFilePath = formattedFilePath.replace(/\s{1}/g, '%20');
-      const filePath: string = repoDir !== fileFsPath ? '/' + formattedFilePath : '';
+      const formattedFilePath: string = path
+        .relative(repoDir as string, fileFsPath)
+        .replace(/\\/g, '/')
+        .replace(/\s{1}/g, '%20');
+      const filePath: string = repoDir !== fileFsPath ? `/${formattedFilePath}` : '';
       const selection = getSelectionLines(editor);
 
-      let webUrl = {
-        baseUrl: stashDomain,
-        gitUrl, branch,
+      let webUrl: WebUrl = {
+        gitUrl,
+        branch,
         filePath,
+        baseUrl: stashDomain,
       };
 
-      if ( selection ) {
-        webUrl = {...webUrl, ...selection};
+      if (selection) {
+        webUrl = { ...webUrl, ...selection };
       }
 
       const url = getUrl(webUrl);
@@ -71,7 +75,7 @@ interface WebUrl {
 
 const getUrl = (args: WebUrl): string => {
   const { baseUrl, gitUrl, filePath, branch, startLine, endLine } = args;
-
+  // tslint:disable-next-line
   return `${baseUrl}/projects/${gitUrl.owner}/repos/${gitUrl.name}/browse`
     + (filePath ? `${filePath}` : '')
     + (branch ? `?at=refs/heads/${branch}` : '')
@@ -79,21 +83,19 @@ const getUrl = (args: WebUrl): string => {
     + (startLine && endLine ? `-${endLine}` : '');
 };
 
-
 interface SelectionLines {
   startLine?: number;
   endLine?: number;
-};
+}
 
 const getSelectionLines = (editor: vscode.TextEditor): SelectionLines | undefined => {
   if (editor.selection.isSingleLine) {
     return {
-      startLine: editor.selection.anchor.line + 1
-    };
-  } else {
-    return {
       startLine: editor.selection.anchor.line + 1,
-      endLine: editor.selection.end.line + 1
     };
   }
+  return {
+    startLine: editor.selection.anchor.line + 1,
+    endLine: editor.selection.end.line + 1,
+  };
 };
