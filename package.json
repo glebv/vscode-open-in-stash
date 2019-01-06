@@ -1,9 +1,9 @@
 {
   "name": "vscode-open-in-stash",
   "displayName": "Open in Stash Atlassian",
-  "description": "Jump to a source code line in Stash Atlassian",
+  "description": "Jump to a source code line in Stash (Stash is Bitbucket Atlassian enterprise)",
   "publisher": "glebv",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "images/icon_200.png",
   "galleryBanner": {
     "color": "#f7f8f8",
@@ -40,7 +40,7 @@
         "string"
       ],
       "default": "",
-      "description": "Configure a custom Stash domain. Useful for Bitbucket Atlassian enterprise"
+      "description": "Configure a custom Stash domain."
     }
   },
   "contributes": {

@@ -50,7 +50,7 @@ Add following line into workspace settings;
 
 ```js
 {
-  "openInStash.stashDomain": "your custom github domain here",
+  "openInStash.stashDomain": "Configure a custom Stash domain.",
 }
 ```
 
